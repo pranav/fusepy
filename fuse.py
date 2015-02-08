@@ -502,9 +502,6 @@ class FUSE(object):
         if not ret: return 0
 
         retsize = len(ret)
-        assert retsize <= size, \
-            'actual amount read %d greater than expected %d' % (retsize, size)
-
         data = create_string_buffer(ret, retsize)
         memmove(buf, ret, retsize)
         return retsize
